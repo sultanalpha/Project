@@ -13,12 +13,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button clic = findViewById(R.id.click);
-        clic.setOnClickListener(new View.OnClickListener() {
+        Button bt=findViewById(R.id.button);
+
+        bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "fuck you sultan", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "FUCK OFF", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }
