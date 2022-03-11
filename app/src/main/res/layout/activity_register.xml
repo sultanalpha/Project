@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Register">
 
     <LinearLayout
         android:layout_width="409dp"
@@ -14,47 +14,49 @@
         tools:layout_editor_absoluteY="1dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Username:"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <EditText
-            android:id="@+id/usernametext"
+            android:id="@+id/usernametextREG"
             android:layout_width="match_parent"
             android:layout_height="71dp"
             android:ems="10"
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Password:"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <EditText
-            android:id="@+id/passwordtext"
+            android:id="@+id/passwordtextREG"
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm Password:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <EditText
+            android:id="@+id/confirmpasswordREG"
             android:layout_width="match_parent"
             android:layout_height="71dp"
             android:ems="10"
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/LoginBTN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Dont have account?" />
-
-        <Button
-            android:id="@+id/RegisterBTN"
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Register" />

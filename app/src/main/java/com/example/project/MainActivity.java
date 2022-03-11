@@ -2,10 +2,11 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,14 +14,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button bt=findViewById(R.id.button);
 
-        bt.setOnClickListener(new View.OnClickListener() {
+        EditText user=findViewById(R.id.usernametext);
+        EditText pass=findViewById(R.id.passwordtext);
+        Button Login=findViewById(R.id.LoginBTN);
+        Button Register=findViewById(R.id.RegisterBTN);
+
+
+        Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "FUCK OFF", Toast.LENGTH_SHORT).show();
+
             }
         });
+        Register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,Register.class));
+            }
+        });
+
+
 
     }
 }
