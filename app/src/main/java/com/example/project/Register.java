@@ -35,7 +35,7 @@ public class Register extends AppCompatActivity {
                     mydb.insert(userREG.getText().toString(),passREG.getText().toString());
                     if(mydb.insert(userREG.getText().toString(),passREG.getText().toString())==true)
                     {
-                        Toast.makeText(Register.this, "Added", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Register.this, "Created", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {

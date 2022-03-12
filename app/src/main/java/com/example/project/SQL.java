@@ -62,6 +62,26 @@ import java.io.File;
 
         }
 
+        public boolean checkuser(String Username){
+            SQLiteDatabase db=this.getWritableDatabase();
+            Cursor cursor=db.rawQuery("select * from User where Username = ?",new String[]{Username});
+            if(cursor.getCount()>0)
+                return true;
+            else
+                return false;
+        }
+
+        public boolean checkuserandpass(String Username,String Password){
+            SQLiteDatabase db=this.getWritableDatabase();
+            Cursor cursor=db.rawQuery("select * from User where Username = ? and Password = ?",new String[]{Username,Password});
+            if(cursor.getCount()>0)
+                return true;
+            else
+                return false;
+        }
+
+
+
 
 
     }

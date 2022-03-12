@@ -25,7 +25,27 @@ public class MainActivity extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                SQL mydb=new SQL(getApplicationContext());
+                mydb.checkuser(user.getText().toString());
+                if(mydb.checkuser(user.getText().toString())==true)
+                {
+                    mydb.checkuserandpass(user.getText().toString(),pass.getText().toString());
+                    if(mydb.checkuserandpass(user.getText().toString(),pass.getText().toString())==true)
+                    {
+                        startActivity(new Intent(MainActivity.this,Welcome.class));
+                    }
+                    else
+                    {
+                        Toast.makeText(MainActivity.this, "Wrong Pass", Toast.LENGTH_SHORT).show();
+                    }
 
+
+
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "User not found", Toast.LENGTH_SHORT).show();
+                }
 
 
             }

@@ -10,13 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Project">
         <activity
+            android:name=".Welcome"
+            android:exported="false" />
+        <activity
             android:name=".Register"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" >
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
             <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity" />
-
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".MainActivity"
