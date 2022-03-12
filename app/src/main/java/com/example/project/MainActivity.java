@@ -3,6 +3,7 @@ package com.example.project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,19 @@ public class MainActivity extends AppCompatActivity {
         Button Login=findViewById(R.id.LoginBTN);
         Button Register=findViewById(R.id.RegisterBTN);
 
+        final SharedPreferences sp=getSharedPreferences("xmlfile",0);
+        final SharedPreferences.Editor edit=sp.edit();
+
+        final String state=sp.getString("state","0");
+
+        if(state.equals("1"))
+        {
+            startActivity(new Intent(MainActivity.this,Welcome.class));
+            finish();
+        }
+
+
+
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,7 +46,14 @@ public class MainActivity extends AppCompatActivity {
                     mydb.checkuserandpass(user.getText().toString(),pass.getText().toString());
                     if(mydb.checkuserandpass(user.getText().toString(),pass.getText().toString())==true)
                     {
+                        Toast.makeText(MainActivity.this, "Intresting", Toast.LENGTH_SHORT).show();
+                        /*
                         startActivity(new Intent(MainActivity.this,Welcome.class));
+                         */
+                        edit.putString("state","1");
+                        edit.commit();
+                            startActivity(new Intent(MainActivity.this,Welcome.class));
+                            finish();
                     }
                     else
                     {
