@@ -40,32 +40,41 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SQL mydb=new SQL(getApplicationContext());
-                mydb.checkuser(user.getText().toString());
-                if(mydb.checkuser(user.getText().toString())==true)
+
+                if(user.getText().toString().equals("")&&pass.getText().toString().equals(""))
                 {
-                    mydb.checkuserandpass(user.getText().toString(),pass.getText().toString());
-                    if(mydb.checkuserandpass(user.getText().toString(),pass.getText().toString())==true)
-                    {
-                        Toast.makeText(MainActivity.this, "Intresting", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Username and Password must not be empty!!!", Toast.LENGTH_SHORT).show();
+                }
+                else if(user.getText().toString().equals(""))
+                {
+                    Toast.makeText(MainActivity.this, "Username must not be empty!!", Toast.LENGTH_SHORT).show();
+                }
+                else if(pass.getText().toString().equals(""))
+                {
+                    Toast.makeText(MainActivity.this, "Password must not be empty!!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    mydb.checkuser(user.getText().toString());
+                    if (mydb.checkuser(user.getText().toString()) == true) {
+                        mydb.checkuserandpass(user.getText().toString(), pass.getText().toString());
+                        if (mydb.checkuserandpass(user.getText().toString(), pass.getText().toString()) == true) {
+                            Toast.makeText(MainActivity.this, "Intresting", Toast.LENGTH_SHORT).show();
                         /*
                         startActivity(new Intent(MainActivity.this,Welcome.class));
                          */
-                        edit.putString("state","1");
-                        edit.commit();
-                            startActivity(new Intent(MainActivity.this,Welcome.class));
+                            edit.putString("state", "1");
+                            edit.commit();
+                            startActivity(new Intent(MainActivity.this, Welcome.class));
                             finish();
+                        } else {
+                            Toast.makeText(MainActivity.this, "Wrong Pass", Toast.LENGTH_SHORT).show();
+                        }
+
+
+                    } else {
+                        Toast.makeText(MainActivity.this, "User not found", Toast.LENGTH_SHORT).show();
                     }
-                    else
-                    {
-                        Toast.makeText(MainActivity.this, "Wrong Pass", Toast.LENGTH_SHORT).show();
-                    }
-
-
-
-                }
-                else
-                {
-                    Toast.makeText(MainActivity.this, "User not found", Toast.LENGTH_SHORT).show();
                 }
 
 
