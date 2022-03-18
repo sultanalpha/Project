@@ -23,6 +23,8 @@ import android.widget.Toast;
 public class Welcome extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST_CODE = 1;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +62,7 @@ public class Welcome extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getTitle().equals("Exit")){
             AlertDialog.Builder b = new AlertDialog.Builder(Welcome.this);
-            b.setMessage("do you want Exit ? ");
+            b.setMessage("do you want to Exit ? ");
             b.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {

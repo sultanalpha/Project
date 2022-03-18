@@ -26,27 +26,30 @@ public class Register extends AppCompatActivity {
 
                 /*Toast.makeText(Register.this, ""+passREG.getText().toString(), Toast.LENGTH_SHORT).show();
                 Toast.makeText(Register.this, ""+confirmpassREG.getText().toString(), Toast.LENGTH_SHORT).show();*/
+                if (userREG.getText().toString().equals("") && passREG.getText().toString().equals("")) {
+                    Toast.makeText(Register.this, "Username and password cannot be empty!!!!!!", Toast.LENGTH_SHORT).show();
+                } else if (userREG.getText().toString().equals("")) {
+                    Toast.makeText(Register.this, "Username cannot be empty!!", Toast.LENGTH_SHORT).show();
+                } else if (passREG.getText().toString().equals("")) {
+                    Toast.makeText(Register.this, "Password cannot be empty!!", Toast.LENGTH_SHORT).show();
+                } else if (confirmpassREG.getText().toString().equals("")) {
+                    Toast.makeText(Register.this, "please enter password equals to password!!!!!!!!", Toast.LENGTH_SHORT).show();
+                } else {
 
 
-
-                if (passREG.getText().toString().equals(confirmpassREG.getText().toString()))
-                {
-                    SQL mydb=new SQL(getApplicationContext());
-                    mydb.insert(userREG.getText().toString(),passREG.getText().toString());
-                    if(mydb.insert(userREG.getText().toString(),passREG.getText().toString())==true)
-                    {
-                        Toast.makeText(Register.this, "Created", Toast.LENGTH_SHORT).show();
+                    if (passREG.getText().toString().equals(confirmpassREG.getText().toString())) {
+                        SQL mydb = new SQL(getApplicationContext());
+                        mydb.insert(userREG.getText().toString(), passREG.getText().toString());
+                        if (mydb.insert(userREG.getText().toString(), passREG.getText().toString()) == true) {
+                            Toast.makeText(Register.this, "Created", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(Register.this, "Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(Register.this, "Password don't match", Toast.LENGTH_SHORT).show();
                     }
-                    else
-                    {
-                        Toast.makeText(Register.this, "Failed", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                else
-                {
-                    Toast.makeText(Register.this, "Password don't match", Toast.LENGTH_SHORT).show();
-                }
 
+                }
             }
         });
 
